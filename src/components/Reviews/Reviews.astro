@@ -1,0 +1,64 @@
+---
+import './reviews.css';
+import { Image } from 'astro:assets';
+
+import review1 from 'public/images/reviews/review-1.webp';
+import review2 from 'public/images/reviews/review-2.webp';
+import review3 from 'public/images/reviews/review-3.webp';
+import review4 from 'public/images/reviews/review-4.webp';
+---
+
+<section id="reviews" class="reviews-section">
+  <div class="reviews-container">
+    <h2 class="reviews-title" data-aos="fade-up">Отзывы наших клиентов</h2>
+
+    <div class="reviews-slider">
+      <!-- Стрелки для десктопа -->
+      <div class="reviews-arrows">
+        <button id="reviews-prev" class="reviews-arrow-btn" aria-label="Предыдущий отзыв">
+          ‹
+        </button>
+        <button id="reviews-next" class="reviews-arrow-btn" aria-label="Следующий отзыв">
+          ›
+        </button>
+      </div>
+
+      <!-- Горизонтальный контейнер -->
+      <div id="reviews-track" class="reviews-track">
+        <div class="review-image-card">
+          <Image src={review1} alt="Отзыв клиента 1" class="review-image" loading="lazy" />
+        </div>
+
+        <div class="review-image-card">
+          <Image src={review2} alt="Отзыв клиента 2" class="review-image" loading="lazy" />
+        </div>
+
+        <div class="review-image-card">
+          <Image src={review3} alt="Отзыв клиента 3" class="review-image" loading="lazy" />
+        </div>
+
+        <div class="review-image-card">
+          <Image src={review4} alt="Отзыв клиента 4" class="review-image" loading="lazy" />
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script is:inline>
+  const track = document.getElementById('reviews-track');
+  const prevBtn = document.getElementById('reviews-prev');
+  const nextBtn = document.getElementById('reviews-next');
+
+  if (track && prevBtn && nextBtn) {
+    const scrollStep = () => track.clientWidth * 0.8;
+
+    prevBtn.addEventListener('click', () => {
+      track.scrollBy({ left: -scrollStep(), behavior: 'smooth' });
+    });
+
+    nextBtn.addEventListener('click', () => {
+      track.scrollBy({ left: scrollStep(), behavior: 'smooth' });
+    });
+  }
+</script>

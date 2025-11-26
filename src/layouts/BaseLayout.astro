@@ -1,0 +1,39 @@
+---
+import 'aos/dist/aos.css';
+import '../styles/global.css';
+const { title = 'Auto Arrivals', description = 'Привоз авто під ключ зі США та Кореї' } =
+  Astro.props;
+---
+
+<html lang="uk">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>{title}</title>
+    <meta name="description" content={description} />
+
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="/images/og.jpg" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body class="min-h-screen flex flex-col overflow-x-hidden">
+    <slot />
+
+    <script>
+      import AOS from 'aos';
+
+      window.addEventListener('load', () => {
+        AOS.init({
+          once: true,
+        });
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,54 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html{
+     scroll-behavior: smooth;
+}
+
+body {
+  @apply font-sans bg-white text-gray-900 max-w-[100vw];
+}
+
+@keyframes shine {
+  0% {
+    left: -120%;
+    opacity: 0;
+  }
+
+  10% {
+    opacity: 1;
+  }
+
+  40% {
+    left: 120%;
+    opacity: 0.8;
+  }
+
+  60% {
+    opacity: 0;
+  }
+
+  100% {
+    left: -120%;
+    opacity: 0;
+  }
+}
+
+
+@keyframes bounceArrow {
+  0% {
+    transform: translateY(0);
+    opacity: 0.9;
+  }
+
+  50% {
+    transform: translateY(10px);
+    opacity: 1;
+  }
+
+  100% {
+    transform: translateY(0);
+    opacity: 0.9;
+  }
+}

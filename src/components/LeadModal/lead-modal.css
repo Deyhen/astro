@@ -1,0 +1,104 @@
+/* фон + выравнивание:
+   mobile — прижато к низу, desktop — по центру */
+.lead-modal-backdrop {
+  @apply fixed inset-0 bg-black/70 z-[100]
+    opacity-0 pointer-events-none transition-opacity
+    flex justify-center items-end md:items-center;
+}
+
+.lead-modal-backdrop.open {
+  @apply opacity-100 pointer-events-auto;
+}
+
+/* карточка:
+   mobile — bottom-sheet (h-[85vh], full width, только верх скруглён),
+   desktop — обычная центрированная модалка */
+.lead-modal {
+  @apply relative bg-white
+    w-full max-w-none md:max-w-[520px]
+    h-[85vh] md:h-auto
+    rounded-t-[24px] md:rounded-[24px]
+    px-6 py-16 md:px-10 md:py-10
+    text-black shadow-2xl
+    flex flex-col overflow-y-auto
+    translate-y-full md:translate-y-0
+    transition-transform duration-300;
+}
+
+/* когда открыто — выезжает вверх на мобилке */
+.lead-modal-backdrop.open .lead-modal {
+  @apply translate-y-0;
+}
+
+/* заголовки */
+.lead-modal-title {
+  @apply text-2xl md:text-3xl font-semibold leading-snug mb-3 text-center;
+}
+
+.lead-modal-subtitle {
+  @apply text-sm md:text-base text-[#333] leading-relaxed text-center mb-6 md:mb-8;
+}
+
+/* форма */
+.lead-modal-form {
+  @apply flex flex-col grow;
+}
+
+.controls{
+  @apply flex grow flex-col gap-6
+}
+
+.lead-input {
+  @apply w-full rounded-xl bg-[#dedede] text-black
+    px-4 md:px-5 py-3 md:py-3.5 text-sm md:text-base
+    outline-none border border-transparent
+    focus:border-black placeholder:text-[#28303db7] transition-colors;
+}
+
+/* телефон */
+.lead-phone-field {
+  @apply flex items-center gap-3 bg-[#dedede] text-black
+    rounded-xl px-4 md:px-5 py-3 md:py-3.5
+    border border-transparent focus-within:border-black transition-colors;
+}
+
+.lead-phone-flag {
+  @apply flex items-center gap-2 text-xs md:text-sm text-gray-700;
+}
+
+.lead-phone-flag-img {
+  @apply w-5 h-5 rounded-full;
+}
+
+.lead-phone-input {
+  @apply flex-1 bg-transparent outline-none text-sm md:text-base placeholder:text-[#28303db7];
+}
+
+/* кнопка */
+.lead-submit {
+  @apply mt-8 w-full rounded-xl bg-black text-white
+    text-xs md:text-sm font-semibold tracking-[0.08em]
+    py-3.5 md:py-4 uppercase
+    transition-colors;
+}
+
+.lead-submit:hover {
+  @apply bg-neutral-800;
+}
+
+/* текст согласия */
+.lead-consent {
+  @apply mt-4 text-[11px] md:text-xs leading-relaxed text-center text-gray-500;
+}
+
+.lead-consent a {
+  @apply text-[#ff7a00] underline underline-offset-2;
+}
+
+/* крестик */
+.lead-close-btn {
+  @apply absolute right-4 top-3 md:right-5 md:top-4
+    w-7 h-7 flex items-center justify-center
+    rounded-full bg-[#f2f2f2] cursor-pointer
+    text-gray-600 hover:bg-gray-300 transition-colors;
+}

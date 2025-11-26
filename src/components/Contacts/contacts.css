@@ -1,0 +1,85 @@
+.contacts-section {
+  @apply relative w-full h-screen ;
+}
+
+/* Фон із машиною */
+.contacts-bg {
+  @apply absolute inset-0 ;
+  background: linear-gradient(
+            rgb(41, 34, 28, 0.1),
+            rgb(41, 34, 28,0.1)
+          ), url("../../public/images/contacts-bg.webp") center/cover no-repeat;
+}
+
+/* Темний оверлей */
+.contacts-overlay {
+  @apply absolute inset-0 bg-black/70;
+}
+
+/* Внутрішній контейнер */
+.contacts-inner {
+  @apply relative max-w-[640px] h-full flex flex-col  justify-center mx-auto px-6 text-center text-white;
+}
+
+/* Заголовок + опис */
+.contacts-title {
+  @apply text-3xl md:text-4xl font-semibold mb-4;
+}
+
+.contacts-subtitle {
+  @apply text-base md:text-lg leading-relaxed mb-8;
+}
+
+/* Форма */
+.contacts-form {
+  @apply flex flex-col gap-4 md:gap-5;
+}
+
+.contacts-input {
+  @apply w-full rounded-lg md:rounded-xl bg-white text-black
+    px-4 md:px-5 py-3 md:py-4 text-sm md:text-base
+    outline-none border border-transparent
+    focus:border-[#ff7a00];
+}
+
+/* Поле телефона – обгортка */
+.contacts-phone-field {
+  @apply flex items-center gap-3 bg-white text-black
+    rounded-lg md:rounded-xl px-4 md:px-5 py-3 md:py-4
+    border border-transparent focus-within:border-[#ff7a00];
+}
+
+/* Блок прапор + код */
+.phone-flag {
+  @apply flex items-center gap-2 text-xs md:text-sm text-gray-700;
+}
+
+.phone-flag-img {
+  @apply w-5 h-5 rounded-full;
+}
+
+/* Сам input телефона */
+.contacts-phone-input {
+  @apply flex-1 bg-transparent outline-none text-sm md:text-base;
+}
+
+/* Кнопка */
+.contacts-button {
+  @apply w-full mt-2 md:mt-3 rounded-lg md:rounded-xl
+    bg-[#ff7a00] text-white font-semibold text-sm md:text-base
+    py-3 md:py-4 shadow-[0_8px_20px_rgba(0,0,0,0.25)]
+    transition-colors;
+}
+
+.contacts-button:hover {
+  @apply bg-[#ff8f24];
+}
+
+/* Текст згоди */
+.contacts-consent {
+  @apply mt-4 text-[11px] md:text-xs leading-relaxed text-gray-300;
+}
+
+.contacts-consent a {
+  @apply text-[#ff7a00] underline underline-offset-2;
+}

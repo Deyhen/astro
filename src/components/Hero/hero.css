@@ -1,0 +1,39 @@
+/* ─────────────────────────────────────────────── */
+/* HERO BACKGROUND */
+/* ─────────────────────────────────────────────── */
+
+.hero-bg {
+  @apply bg-no-repeat bg-cover bg-center;
+  background-image: url('../../public/images/main-bg.webp');
+}
+
+/* ─────────────────────────────────────────────── */
+/* HERO BOTTOM V SHAPE */
+/* ─────────────────────────────────────────────── */
+
+.hero-bottom-v {
+  @apply absolute bottom-0 left-0 w-full flex justify-center items-end;
+  height: calc(-1px + 8vw);
+}
+
+.hero-bottom-v > .v-path {
+  @apply w-full h-full;
+}
+
+/* ─────────────────────────────────────────────── */
+/* BUTTON SHINE EFFECT */
+/* ─────────────────────────────────────────────── */
+
+.button-hero {
+  @apply relative overflow-hidden transition-colors;
+}
+
+
+
+/* ─────────────────────────────────────────────── */
+/* ARROW ANIMATION */
+/* ─────────────────────────────────────────────── */
+
+.arrow-bounce {
+  animation: bounceArrow 1.4s infinite ease-out;
+}

@@ -1,0 +1,47 @@
+
+
+.benefits-section {
+  @apply bg-[#f4f4f4]  pt-20;
+}
+.benefits-container {
+  @apply  grid grid-cols-1 md:grid-cols-2  items-start;
+}
+
+.benefits-wrap{
+  @apply bg-white p-10 px-20 max-md:pt-16 max-md:-mt-6 md:-ml-8 md:pl-28;
+}
+
+
+
+.benefits-image-wrapper {
+  @apply flex z-10 min-h-[300px] rounded-[32px] overflow-hidden items-end justify-center h-full max-w-[100vw];
+  background: url('../../public/images/euro-car.webp') center/cover no-repeat
+}
+
+.benefits-image {
+  @apply w-full h-auto object-contain;
+}
+
+.benefits-title {
+  @apply text-3xl md:text-4xl font-semibold mb-6;
+}
+
+.benefits-paragraph {
+  @apply text-base md:text-lg text-[#333] leading-relaxed mb-4;
+}
+
+.benefits-list {
+  @apply space-y-3 mt-4;
+}
+
+.benefits-list-item {
+  @apply flex items-start gap-2 text-sm md:text-base text-[#333];
+}
+
+.benefits-list-icon {
+  @apply mt-[2px];
+}
+
+.button-hero{
+  @apply relative z-10 inline-block px-[44px] py-[14px] border mt-14 border-black shadow-xl rounded-full text-base font-normal text-black hover:text-white hover:bg-black bg-white transition-colors duration-300
+}

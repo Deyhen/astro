@@ -1,0 +1,67 @@
+.faq-section {
+  @apply bg-white py-20 md:py-24;
+}
+
+.faq-container {
+  @apply max-w-[1100px] mx-auto px-6;
+}
+
+.faq-title {
+  @apply text-3xl md:text-4xl font-semibold text-center mb-12 md:mb-16;
+}
+
+.faq-item {
+  @apply mb-12 md:mb-16;
+}
+
+.faq-question-bubble {
+  @apply relative bg-black text-white rounded-[32px]
+    px-6 md:px-10 py-6 md:py-7
+    flex flex-col md:flex-row md:items-center;
+}
+
+.faq-question-bubble::after {
+  content: "";
+  position: absolute;
+  left: 70px;
+  bottom: -18px;
+  border-top: 18px solid #000;
+  border-right: 18px solid transparent;
+}
+
+.faq-answer-bubble {
+  @apply relative bg-[#EEEEEE] text-black rounded-[32px]
+    px-6 md:px-10 py-6 md:py-7
+    flex flex-col md:flex-row md:items-start;
+}
+
+.faq-answer-bubble::after {
+  content: "";
+  position: absolute;
+  right: 70px;
+  bottom: -18px;
+  border-top: 18px solid #f4f4f4;
+  border-left: 18px solid transparent;
+}
+
+.faq-label {
+  @apply text-[12px] tracking-[2.5px] uppercase font-semibold leading-[1.3]
+    mb-3 md:mb-0 md:w-[130px] shrink-0;
+}
+
+.faq-label--question {
+  @apply text-white;
+}
+
+.faq-label--answer {
+  @apply text-black;
+}
+
+
+.faq-question-text {
+  @apply text-sm md:text-base font-semibold md:ml-6;
+}
+
+.faq-answer-text {
+  @apply text-sm md:text-base leading-relaxed md:ml-6;
+}

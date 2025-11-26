@@ -1,0 +1,74 @@
+---
+import './header.css';
+import TgIcon from 'public/icons/telegram.svg';
+
+import Logo from '../../public/images/logo.png';
+import { Image } from 'astro:assets';
+---
+
+<header id="site-header" class="fixed top-0 left-0 w-full z-50 h-[80px] flex items-center">
+  <div class="mx-auto w-full flex items-center justify-between pl-10 pr-[45px]">
+    <Image
+      class="w-20 h-20"
+      data-aos="fade-down"
+      src={Logo}
+      alt="Auto Arrivals"
+      class="h-20 w-auto"
+      loading="lazy"
+    />
+
+    <nav class="hidden min-[800px]:flex items-center gap-[30px] text-white text-[16px]">
+      <a href="#services" class="nav-link">Услуги</a>
+      <a href="#benefits" class="nav-link">Преимущества</a>
+      <a href="#steps" class="nav-link">Как мы работаем</a>
+      <a href="#faq" class="nav-link">FAQ</a>
+      <a href="#contacts" class="nav-link">Контакты</a>
+    </nav>
+
+    <div class="pl-[40px] hidden min-[800px]:block">
+      <a href="#contacts" aria-label="Написать в Telegram">
+        <TgIcon class="w-full h-full hover:scale-[1.1] transition-transform" />
+      </a>
+    </div>
+
+    <button aria-label="Открыть меню" id="mobile-menu-btn" class="burger flex min-[800px]:hidden">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+
+  <div id="mobile-menu" class="mobile-menu hidden">
+    <nav class="flex flex-col gap-6 text-white text-xl font-semibold mt-24 text-center">
+      <a href="#services" class="mobile-link">Услуги</a>
+      <a href="#benefits" class="mobile-link">Преимущества</a>
+      <a href="#steps" class="mobile-link">Как мы работаем</a>
+      <a href="#faq" class="mobile-link">FAQ</a>
+      <a href="#contacts" class="mobile-link">Контакты</a>
+
+      <a href="#contacts" class="mx-auto mt-16 mobile-tg" aria-label="Написать в Telegram">
+        <TgIcon class="w-12 h-12 hover:scale-[1.1] transition-transform" />
+      </a>
+    </nav>
+  </div>
+</header>
+
+<script>
+  import { initHeaderScrollEffect } from './header.js';
+  initHeaderScrollEffect();
+
+  const menuBtn = document.getElementById('mobile-menu-btn');
+  const mobileMenu = document.getElementById('mobile-menu');
+
+  menuBtn?.addEventListener('click', () => {
+    menuBtn.classList.toggle('active');
+    mobileMenu?.classList.toggle('open');
+    mobileMenu?.classList.toggle('hidden');
+  });
+
+  document.querySelectorAll('.mobile-link').forEach((link) => {
+    link.addEventListener('click', () => {
+      menuBtn?.classList.remove('active');
+      mobileMenu?.classList.add('hidden');
+      mobileMenu?.classList.remove('open');
+    });
+  });
+</script>

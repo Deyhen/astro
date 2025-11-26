@@ -1,0 +1,68 @@
+---
+import './services.css';
+
+import Car from 'public/icons/car.svg';
+import Truck from 'public/icons/truck.svg';
+import Key from 'public/icons/key.svg';
+import Euro from 'public/icons/euro.svg';
+import Document from 'public/icons/document.svg';
+import Aim from 'public/icons/aim.svg';
+---
+
+<section id="services" class="py-24 bg-[#f4f4f4]">
+  <div class="max-w-[1300px] mx-auto px-6">
+    <h2 class="text-3xl md:text-4xl font-semibold text-center mb-14" data-aos="fade-up">
+      Наши услуги
+    </h2>
+
+    <div class="grid md:grid-cols-2 gap-10">
+      <div class="service-card" data-aos="fade-up">
+        <Aim class="service-icon" />
+        <h3 class="service-title">Подбор автомобиля</h3>
+        <p class="service-text">
+          Профессиональный поиск автомобиля по вашим параметрам с проверкой истории и технического
+          состояния.
+        </p>
+      </div>
+
+      <div class="service-card" data-aos="fade-up" data-aos-delay="100">
+        <Euro class="service-icon" />
+        <h3 class="service-title">Покупка и оформление</h3>
+        <p class="service-text">
+          Организация покупки, проверка документов и юридическое сопровождение сделки.
+        </p>
+      </div>
+
+      <div class="service-card" data-aos="fade-up" data-aos-delay="150">
+        <Truck class="service-icon" />
+        <h3 class="service-title">Доставка автомобиля</h3>
+        <p class="service-text">
+          Доставка автомобиля из Европы в кратчайшие сроки с полной отчётностью на каждом этапе.
+        </p>
+      </div>
+
+      <div class="service-card" data-aos="fade-up" data-aos-delay="200">
+        <Document class="service-icon" />
+        <h3 class="service-title">Растаможка и постановка на учёт</h3>
+        <p class="service-text">
+          Оформление всех документов, растаможка, сертификация и постановка на учёт без вашего
+          участия.
+        </p>
+      </div>
+      <div class="service-card" data-aos="fade-up" data-aos-delay="200">
+        <Car class="service-icon" />
+        <h3 class="service-title">Технический осмотр</h3>
+        <p class="service-text">
+          Комплексная диагностика автомобиля перед покупкой с отчетом о состоянии.
+        </p>
+      </div>
+      <div class="service-card" data-aos="fade-up" data-aos-delay="200">
+        <Key class="service-icon" />
+        <h3 class="service-title">Постановка на учет</h3>
+        <p class="service-text">
+          Помощь в регистрации автомобиля в ГИБДД и получении российских номеров.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>

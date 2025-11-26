@@ -1,0 +1,83 @@
+---
+import './stats.css';
+---
+
+<section id="stats" class="relative w-full bg-white py-20 md:py-28 px-6 sm:px-10 -mt-px">
+  <div
+    class="max-w-[1200px] mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-16 text-center"
+  >
+    <!-- Item 1 -->
+    <div data-aos="fade-up" class="wrap">
+      <span class="count">
+        <h5 class="stat-number" data-target="12">0</h5>+
+      </span>
+      <div class="line"></div>
+      <p class="label">Лет на рынке</p>
+    </div>
+
+    <!-- Item 2 -->
+    <div data-aos="fade-up" data-aos-delay="100" class="wrap">
+      <span class="count">
+        <h5 class="stat-number" data-target="1500">0</h5>+
+      </span>
+      <div class="line"></div>
+      <p class="label">Довольных клиентов</p>
+    </div>
+
+    <!-- Item 3 -->
+    <div data-aos="fade-up" data-aos-delay="150" class="wrap">
+      <span class="count">
+        <h5 class="stat-number" data-target="30">0</h5>+
+      </span>
+      <div class="line"></div>
+      <p class="label">Стран поставки</p>
+    </div>
+
+    <!-- Item 4 (без анімації за бажанням) -->
+    <div data-aos="fade-up" data-aos-delay="200" class="wrap">
+      <h5 class="count">24/7</h5>
+      <div class="line"></div>
+      <p class="label">Поддержка клиентов</p>
+    </div>
+  </div>
+</section>
+
+<script is:inline>
+  // Функція анімації
+  function animateCount(el) {
+    const target = +el.dataset.target;
+    let current = 0;
+    const duration = 1200; // 1.2s
+    const steps = 60;
+    const step = target / steps;
+    let frame = 0;
+
+    const interval = setInterval(() => {
+      frame++;
+      current += step;
+
+      if (frame >= steps) {
+        el.textContent = target;
+        clearInterval(interval);
+      } else {
+        el.textContent = Math.floor(current);
+      }
+    }, duration / steps);
+  }
+
+  // Перевірка появи елемента в viewport
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          animateCount(entry.target);
+          observer.unobserve(entry.target); // Запуск лише один раз
+        }
+      });
+    },
+    { threshold: 0.3 },
+  );
+
+  // Підключення до кожного елемента
+  document.querySelectorAll('.stat-number').forEach((el) => observer.observe(el));
+</script>

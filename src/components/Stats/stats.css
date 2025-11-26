@@ -1,0 +1,15 @@
+#stats .wrap{
+  @apply flex flex-col items-start
+}
+
+#stats .count{
+  @apply flex justify-center items-center text-3xl font-bold mb-3
+}
+
+#stats .line{
+  @apply w-full h-[3px] bg-black mb-4
+}
+
+#stats .label{
+  @apply text-gray-700 text-base font-light
+}

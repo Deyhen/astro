@@ -1,0 +1,46 @@
+.steps-section {
+  @apply bg-white py-20 md:py-24;
+}
+
+.steps-container {
+  @apply max-w-[1100px] mx-auto px-6;
+}
+
+.steps-title {
+  @apply text-3xl md:text-4xl font-semibold text-center mb-[3.5rem];
+}
+
+.steps-inner {
+  @apply relative mt-10 md:mt-16 pl-[5px] md:pl-0;
+}
+
+/* Вертикальна лінія */
+.steps-line {
+  @apply absolute top-0 bottom-0 w-[2px] bg-[#111111] left-[28px] md:left-1/2 md:-translate-x-1/2;
+}
+
+/* Один крок */
+.step-item {
+  @apply relative flex items-start gap-4 mb-8 md:mb-12 md:gap-0 md:min-h-[5rem];
+}
+
+/* Кружок з номером */
+.step-circle {
+  @apply w-12 h-12 rounded-full bg-black text-white flex items-center justify-center
+    sm:text-xl font-semibold flex-shrink-0
+    relative z-10 md:absolute md:left-1/2 md:-translate-x-1/2;
+}
+
+/* Текст */
+.step-content {
+  @apply text-base text-[#333] leading-relaxed;
+}
+
+/* Розташування тексту ліворуч / праворуч на десктопі */
+.step-left .step-content {
+  @apply md:w-1/2 md:pr-10 md:text-right md:mr-auto;
+}
+
+.step-right .step-content {
+  @apply md:w-1/2 md:pl-10 md:text-left md:ml-auto;
+}

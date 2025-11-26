@@ -1,0 +1,30 @@
+.footer {
+  @apply relative bg-[#111111] text-white py-10 md:py-12 px-12 flex flex-col md:flex-row items-center text-center justify-between md:text-start gap-6;
+}
+
+
+.footer-tg-row {
+  @apply flex items-center justify-center gap-4 mb-2;
+}
+
+.footer-tg-btn {
+  @apply w-10 h-10  rounded-full md:order-3  flex items-center justify-center cursor-pointer md:absolute inset-0 top-1/2 left-1/2 md:-translate-y-1/2 md:-translate-x-1/2
+    text-black hover:scale-[1.05] transition-transform;
+}
+
+.footer-tg-icon {
+  @apply w-10 h-10;
+}
+
+
+.footer-text {
+  @apply text-xs md:text-sm leading-relaxed order-2 md:order-1;
+}
+
+.footer-link {
+  @apply text-[#ff7a00] underline underline-offset-2 cursor-pointer  ;
+}
+
+.footer-top {
+  @apply text-xs md:text-sm text-white cursor-pointer hover:text-[#ff7a00] transition-colors order-3;
+}

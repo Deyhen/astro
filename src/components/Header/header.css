@@ -1,0 +1,78 @@
+/* ──────────────────────────────────────────────── */
+/* HEADER SCROLLED STATE */
+/* ──────────────────────────────────────────────── */
+
+#site-header {
+  @apply bg-[rgba(0,0,0,0.5)] transition-all duration-300;
+}
+
+#site-header.scrolled {
+  background: rgba(0, 0, 0, 0.72) !important;
+  backdrop-filter: blur(10px) !important;
+  height: 70px !important;
+}
+
+/* ──────────────────────────────────────────────── */
+/* DESKTOP NAV */
+/* ──────────────────────────────────────────────── */
+
+.nav-link {
+  @apply transition-colors duration-200 font-semibold whitespace-nowrap;
+}
+
+.nav-link:hover {
+  @apply text-[#ff4242];
+}
+
+/* ──────────────────────────────────────────────── */
+/* MOBILE MENU */
+/* ──────────────────────────────────────────────── */
+
+.mobile-menu {
+  @apply fixed top-0 left-0 w-full h-screen bg-[rgba(5,5,5,0.95)] backdrop-blur-md z-[999] pt-5 opacity-0 pointer-events-none transition-opacity duration-500;
+}
+
+.mobile-menu.open {
+  @apply opacity-100 pointer-events-auto;
+}
+
+.mobile-link {
+  @apply transition-colors duration-200;
+}
+
+.mobile-link:hover {
+  @apply text-[#ff4242];
+}
+
+/* ──────────────────────────────────────────────── */
+/* BURGER MENU */
+/* ──────────────────────────────────────────────── */
+
+.burger {
+  @apply w-8 h-6 flex-col justify-between cursor-pointer relative z-[1000];
+}
+
+.burger span {
+  @apply block w-full h-[3px] bg-white rounded transition-all duration-300;
+}
+
+/* ACTIVE STATE (ANIMATED ICON) */
+.burger.active span:nth-child(1) {
+  transform: translateY(11px) rotate(45deg);
+}
+
+.burger.active span:nth-child(2) {
+  opacity: 0;
+}
+
+.burger.active span:nth-child(3) {
+  transform: translateY(-11px) rotate(-45deg);
+}
+
+/* ──────────────────────────────────────────────── */
+/* TELEGRAM ICON BOUNCE */
+/* ──────────────────────────────────────────────── */
+
+.mobile-tg {
+  animation: bounceArrow 1.4s infinite ease-out;
+}

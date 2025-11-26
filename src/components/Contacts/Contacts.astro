@@ -1,0 +1,39 @@
+---
+import './contacts.css';
+---
+
+<section id="contacts" class="contacts-section">
+  <!-- Фон + затемнення -->
+  <div class="contacts-bg"></div>
+  <div class="contacts-overlay"></div>
+
+  <!-- Контент -->
+  <div class="contacts-inner" data-aos="fade-up">
+    <h2 class="contacts-title">Оставьте заявку</h2>
+
+    <p class="contacts-subtitle">
+      Расскажите, какой автомобиль вы ищете — мы подберём лучшие варианты и рассчитаем стоимость с
+      доставкой и оформлением.
+    </p>
+
+    <form class="contacts-form">
+      <input type="text" name="name" class="contacts-input" placeholder="Имя" />
+
+      <div class="contacts-phone-field">
+        <input
+          type="tel"
+          name="phone"
+          class="contacts-phone-input"
+          placeholder="+38 (00) 000-00-00"
+        />
+      </div>
+
+      <button type="submit" class="contacts-button"> Оставить заявку </button>
+    </form>
+
+    <p class="contacts-consent">
+      Отправляя заявку, вы даете свое согласие на <a href="/policy">обработку персональных данных</a
+      >.
+    </p>
+  </div>
+</section>
