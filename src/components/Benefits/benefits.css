@@ -42,6 +42,6 @@
   @apply mt-[2px];
 }
 
-.button-hero{
+#benefits .button-hero{
   @apply relative z-10 inline-block px-[44px] py-[14px] border mt-14 border-black shadow-xl rounded-full text-base font-normal text-black hover:text-white hover:bg-black bg-white transition-colors duration-300
 }
