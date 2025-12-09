@@ -32,14 +32,24 @@
 
 /* Форма */
 .contacts-form {
-  @apply flex flex-col gap-4 md:gap-5;
+  @apply flex flex-col gap-3 ;
+}
+
+/* Input wrapper для сообщений об ошибках */
+.contacts-form .input-wrapper {
+  @apply relative;
+  min-height: 5.5rem; /* Reserve space for input + error message */
 }
 
 .contacts-input {
   @apply w-full rounded-lg md:rounded-xl bg-white text-black
     px-4 md:px-5 py-3 md:py-4 text-sm md:text-base
-    outline-none border border-transparent
-    focus:border-[#ff7a00];
+    outline-none border-2 border-transparent
+    focus:border-[#ff7a00] transition-colors;
+}
+
+.contacts-input.error {
+  @apply border-red-500;
 }
 
 /* Поле телефона – обгортка */
@@ -68,11 +78,15 @@
   @apply w-full mt-2 md:mt-3 rounded-lg md:rounded-xl
     bg-[#ff7a00] text-white font-semibold text-sm md:text-base
     py-3 md:py-4 shadow-[0_8px_20px_rgba(0,0,0,0.25)]
-    transition-colors;
+    transition-all;
 }
 
-.contacts-button:hover {
+.contacts-button:hover:not(:disabled) {
   @apply bg-[#ff8f24];
+}
+
+.contacts-button:disabled {
+  @apply opacity-50 cursor-not-allowed;
 }
 
 /* Текст згоди */
@@ -82,4 +96,12 @@
 
 .contacts-consent a {
   @apply text-[#ff7a00] underline underline-offset-2;
+}
+
+/* Сообщения об ошибках */
+.contacts-form .error-message {
+  @apply text-red-400 text-xs md:text-sm mt-1.5 pl-1;
+  min-height: 1.25rem; /* Fixed height to prevent layout shifts */
+  line-height: 1.25rem;
+  display: block;
 }

@@ -28,11 +28,13 @@ const { title = 'Auto Arrivals', description = 'Привоз авто під к�
 
     <script>
       import AOS from 'aos';
+      import { initAllPhoneInputs } from '../scripts/phoneInput.ts';
 
       window.addEventListener('load', () => {
         AOS.init({
           once: true,
         });
+        initAllPhoneInputs();
       });
     </script>
   </body>

@@ -1,13 +1,12 @@
 ---
+import PhoneInput from '../PhoneInput/PhoneInput.astro';
 import './contacts.css';
 ---
 
 <section id="contacts" class="contacts-section">
-  <!-- Фон + затемнення -->
   <div class="contacts-bg"></div>
   <div class="contacts-overlay"></div>
 
-  <!-- Контент -->
   <div class="contacts-inner" data-aos="fade-up">
     <h2 class="contacts-title">Оставьте заявку</h2>
 
@@ -16,16 +15,13 @@ import './contacts.css';
       доставкой и оформлением.
     </p>
 
-    <form class="contacts-form">
-      <input type="text" name="name" class="contacts-input" placeholder="Имя" />
+    <form class="contacts-form" id="contacts-form">
+      <div class="input-wrapper">
+        <input type="text" name="name" class="contacts-input" placeholder="Имя" />
+      </div>
 
-      <div class="contacts-phone-field">
-        <input
-          type="tel"
-          name="phone"
-          class="contacts-phone-input"
-          placeholder="+38 (00) 000-00-00"
-        />
+      <div class="input-wrapper">
+        <PhoneInput id="contacts-phone" name="phone" />
       </div>
 
       <button type="submit" class="contacts-button"> Оставить заявку </button>
@@ -37,3 +33,24 @@ import './contacts.css';
     </p>
   </div>
 </section>
+
+<script>
+  import { initFormValidation } from '../../scripts/formValidation';
+
+  // Wait for phone input to be initialized
+  window.addEventListener('load', () => {
+    const form = document.getElementById('contacts-form') as HTMLFormElement;
+
+    if (form) {
+      // Small delay to ensure intl-tel-input is initialized
+      setTimeout(() => {
+        initFormValidation(form, (formData) => {
+          console.log('Contacts form submitted:', formData);
+          // Here you can add your form submission logic (e.g., send to API)
+          alert('Заявка отправлена!');
+          form.reset();
+        });
+      }, 100);
+    }
+  });
+</script>

@@ -1,0 +1,22 @@
+---
+import './phone-input.css';
+import 'intl-tel-input/build/css/intlTelInput.css';
+
+interface Props {
+  id: string;
+  name: string;
+  placeholder?: string;
+  class?: string;
+}
+
+const { id, name, placeholder = '', class: className = '' } = Astro.props;
+---
+
+<input
+  type="tel"
+  id={id}
+  name={name}
+  placeholder={placeholder}
+  class={`phone-input ${className}`}
+  data-phone-input
+/>

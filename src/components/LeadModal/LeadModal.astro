@@ -1,4 +1,5 @@
 ---
+import PhoneInput from '../PhoneInput/PhoneInput.astro';
 import './lead-modal.css';
 ---
 
@@ -11,7 +12,6 @@ import './lead-modal.css';
   aria-hidden="true"
 >
   <div class="lead-modal" data-modal-inner>
-    <!-- Кнопка закрытия -->
     <button type="button" class="lead-close-btn" data-close-lead aria-label="Закрыть форму">
       ✕
     </button>
@@ -26,36 +26,31 @@ import './lead-modal.css';
       доставкой и оформлением.
     </p>
 
-    <form class="lead-modal-form">
+    <form class="lead-modal-form" id="lead-modal-form">
       <div class="controls">
-        <!-- Имя -->
-        <label class="sr-only" for="lead-name">Ваше имя</label>
-        <input id="lead-name" name="name" type="text" class="lead-input" placeholder="Ваше имя" />
-
-        <!-- Телефон -->
-        <label class="sr-only" for="lead-phone">Телефон</label>
-        <div class="lead-phone-field">
-          <input
-            id="lead-phone"
-            name="phone"
-            type="tel"
-            class="lead-phone-input"
-            placeholder="+38 (00) 000-00-00"
-          />
+        <div class="input-wrapper">
+          <label class="sr-only" for="lead-name">Ваше имя</label>
+          <input id="lead-name" name="name" type="text" class="lead-input" placeholder="Ваше имя" />
         </div>
 
-        <!-- Марка / модель -->
-        <label class="sr-only" for="lead-car">Марка / модель авто</label>
-        <input
-          id="lead-car"
-          name="car"
-          type="text"
-          class="lead-input"
-          placeholder="Марка / модель авто"
-        />
+        <div class="input-wrapper">
+          <label class="sr-only" for="lead-phone">Телефон</label>
+          <PhoneInput id="lead-phone" name="phone" class="lead-phone-input" />
+        </div>
+
+        <div class="input-wrapper">
+          <label class="sr-only" for="lead-car">Марка / модель авто</label>
+          <input
+            id="lead-car"
+            name="car"
+            type="text"
+            class="lead-input"
+            placeholder="Марка / модель авто"
+          />
+        </div>
       </div>
 
-      <button type="submit" class="lead-submit"> Отправить заявку </button>
+      <button type="submit" class="lead-submit">Отправить заявку</button>
     </form>
 
     <p class="lead-consent">
@@ -69,41 +64,7 @@ import './lead-modal.css';
   </div>
 </div>
 
-<script is:inline>
-  const backdrop = document.getElementById('lead-modal-backdrop');
-
-  function openLeadModal() {
-    if (!backdrop) return;
-    backdrop.classList.add('open');
-    backdrop.setAttribute('aria-hidden', 'false');
-  }
-
-  function closeLeadModal() {
-    if (!backdrop) return;
-    backdrop.classList.remove('open');
-    backdrop.setAttribute('aria-hidden', 'true');
-  }
-
-  // Открытие по любому элементу с data-open-lead
-  document.querySelectorAll('[data-open-lead]').forEach((el) => {
-    el.addEventListener('click', (e) => {
-      e.preventDefault();
-      openLeadModal();
-    });
-  });
-
-  // Закрытие по крестику
-  backdrop?.querySelectorAll('[data-close-lead]').forEach((el) => {
-    el.addEventListener('click', () => closeLeadModal());
-  });
-
-  // Клик по фону (но не по самой карточке)
-  backdrop?.addEventListener('click', (e) => {
-    if (e.target === backdrop) closeLeadModal();
-  });
-
-  // Esc
-  document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape') closeLeadModal();
-  });
+<script>
+  import { initLeadModal } from './lead-modal.ts';
+  initLeadModal();
 </script>

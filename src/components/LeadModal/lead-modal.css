@@ -45,22 +45,26 @@
 }
 
 .controls{
-  @apply flex grow flex-col gap-6
+  @apply flex grow flex-col gap-1
+}
+
+/* Input wrapper для сообщений об ошибках */
+.lead-modal-form .input-wrapper {
+  @apply relative;
+  min-height: 5.5rem; /* Reserve space for input + error message */
 }
 
 .lead-input {
   @apply w-full rounded-xl bg-[#dedede] text-black
-    px-4 md:px-5 py-3 md:py-3.5 text-sm md:text-base
-    outline-none border border-transparent
+    px-5 py-3.5 text-base
+    outline-none border-2 border-transparent
     focus:border-black placeholder:text-[#28303db7] transition-colors;
 }
 
-/* телефон */
-.lead-phone-field {
-  @apply flex items-center gap-3 bg-[#dedede] text-black
-    rounded-xl px-4 md:px-5 py-3 md:py-3.5
-    border border-transparent focus-within:border-black transition-colors;
+.lead-input.error {
+  @apply border-red-500;
 }
+
 
 .lead-phone-flag {
   @apply flex items-center gap-2 text-xs md:text-sm text-gray-700;
@@ -71,19 +75,23 @@
 }
 
 .lead-phone-input {
-  @apply flex-1 bg-transparent outline-none text-sm md:text-base placeholder:text-[#28303db7];
+  @apply flex-1 bg-transparent outline-none text-base placeholder:text-[#28303db7];
 }
 
 /* кнопка */
 .lead-submit {
   @apply mt-8 w-full rounded-xl bg-black text-white
-    text-xs md:text-sm font-semibold tracking-[0.08em]
-    py-3.5 md:py-4 uppercase
-    transition-colors;
+    text-sm font-semibold tracking-[0.08em]
+    py-6 md:py-4 uppercase
+    transition-all;
 }
 
-.lead-submit:hover {
+.lead-submit:hover:not(:disabled) {
   @apply bg-neutral-800;
+}
+
+.lead-submit:disabled {
+  @apply opacity-50 cursor-not-allowed;
 }
 
 /* текст согласия */
@@ -101,4 +109,12 @@
     w-7 h-7 flex items-center justify-center
     rounded-full bg-[#f2f2f2] cursor-pointer
     text-gray-600 hover:bg-gray-300 transition-colors;
+}
+
+/* Сообщения об ошибках */
+.lead-modal-form .error-message {
+  @apply text-red-500 text-xs md:text-sm mt-1.5 pl-1;
+  min-height: 1.25rem; /* Fixed height to prevent layout shifts */
+  line-height: 1.25rem;
+  display: block;
 }

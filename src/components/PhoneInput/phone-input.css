@@ -1,0 +1,114 @@
+.phone-input {
+  width: 100%;
+}
+
+/* Ensure intl-tel-input container takes full width */
+.iti {
+  width: 100%;
+  display: block;
+}
+
+.iti__input {
+  width: 100%;
+}
+
+/* Match contacts.css styles */
+.contacts-form .iti {
+  @apply rounded-lg md:rounded-xl bg-white text-black
+    border-2 border-transparent transition-colors;
+}
+
+.contacts-form .iti__tel-input{
+  @apply h-[58px] rounded-lg md:rounded-xl pb-0.5
+}
+
+.contacts-form .iti:focus-within {
+  @apply border-[#ff7a00];
+}
+
+.contacts-form .iti.error {
+  @apply border-red-500;
+}
+
+.contacts-form .iti__input {
+  @apply w-full bg-white text-black
+    px-4 md:px-5 py-3 md:py-4 text-sm md:text-base
+    outline-none rounded-lg md:rounded-xl;
+}
+
+.contacts-form .iti__selected-dial-code {
+  @apply text-sm md:text-base text-black;
+}
+
+.contacts-form .iti__selected-country {
+  @apply pl-3 md:pl-4;
+}
+
+/* Match lead-modal.css styles */
+.lead-modal-form .iti {
+  @apply rounded-xl bg-[#dedede] text-black
+    border-2 border-transparent transition-colors;
+}
+
+.lead-modal-form .iti:focus-within {
+  @apply border-black;
+}
+
+.lead-modal-form .iti.error {
+  @apply border-red-500;
+}
+
+.lead-modal-form .iti__input {
+  @apply w-full bg-transparent text-black
+    px-4 md:px-5 py-3 md:py-3.5 text-sm md:text-base
+    outline-none placeholder:text-[#28303db7];
+}
+
+.lead-modal-form .iti__tel-input{
+  @apply h-[54px]
+}
+
+.lead-modal-form .iti__selected-dial-code {
+  @apply text-sm md:text-base text-gray-700;
+}
+
+.lead-modal-form .iti__selected-country {
+  @apply pl-3 md:pl-4
+}
+
+.lead-modal-form .iti__selected-country{
+    --iti-hover-color: #dedede;
+}
+
+.lead-modal-form .iti__tel-input{
+  @apply h-[54px]
+}
+
+/* Common styles for both */
+
+.iti__selected-country {
+    --iti-hover-color: white;
+  @apply outline-none ;
+}
+
+.iti__country-list {
+  @apply shadow-2xl rounded-lg max-h-[200px];
+}
+
+.iti__country {
+  @apply px-3 py-2 text-sm;
+}
+
+.iti__country:hover {
+  @apply bg-gray-100;
+}
+
+.iti__country.iti__highlight {
+  @apply bg-gray-200;
+}
+.iti__search-input{
+  @apply h-12 !outline-none
+}
+.iti__selected-country-flag {
+  @apply mr-2;
+}
