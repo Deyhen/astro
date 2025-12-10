@@ -14,8 +14,8 @@
 
 
 .benefits-image-wrapper {
-  @apply flex z-10 min-h-[300px] rounded-[32px] overflow-hidden items-end justify-center h-full max-w-[100vw];
-  background: url('../../public/images/euro-car.webp') center/cover no-repeat
+  @apply flex z-10 min-h-[300px] rounded-t-[32px] md:rounded-r-[32px] overflow-hidden items-end justify-center h-full max-w-[100vw];
+  background: url('../../public/images/euro-car.png') center/contain no-repeat, #333333
 }
 
 .benefits-image {

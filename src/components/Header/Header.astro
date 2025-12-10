@@ -7,13 +7,12 @@ import { Image } from 'astro:assets';
 ---
 
 <header id="site-header" class="fixed top-0 left-0 w-full z-50 h-[80px] flex items-center">
-  <div class="mx-auto w-full flex items-center justify-between pl-10 pr-[45px]">
+  <div class="mx-auto w-full flex items-center justify-between pl-4 pr-[45px]">
     <Image
-      class="w-20 h-20"
+      class="object-cover w-[120px] pt-8"
       data-aos="fade-down"
       src={Logo}
       alt="Auto Arrivals"
-      class="h-20 w-auto"
       loading="lazy"
     />
 
