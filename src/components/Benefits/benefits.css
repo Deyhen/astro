@@ -1,47 +1,133 @@
-
-
 .benefits-section {
-  @apply bg-[#f4f4f4]  pt-20;
+  background: #f4f4f4;
+  padding-top: 5rem;
 }
+
 .benefits-container {
-  @apply  grid grid-cols-1 md:grid-cols-2  items-start;
+  display: grid;
+  grid-template-columns: 1fr;
+  align-items: flex-start;
 }
 
-.benefits-wrap{
-  @apply bg-white p-10 px-20 max-md:pt-16 max-md:-mt-6 md:-ml-8 md:pl-28;
+@media (min-width: 768px) {
+  .benefits-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 
+.benefits-wrap {
+  background: white;
+  padding: 2.5rem 5rem;
+}
 
+@media (max-width: 767px) {
+  .benefits-wrap {
+  padding: 2.5rem 2rem;
+    padding-top: 4rem;
+    margin-top: -1.5rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .benefits-wrap {
+    margin-left: -2rem;
+    padding-left: 7rem;
+  }
+}
 
 .benefits-image-wrapper {
-  @apply flex z-10 min-h-[300px] rounded-t-[32px] md:rounded-r-[32px] overflow-hidden items-end justify-center h-full max-w-[100vw];
-  background: url('../../public/images/euro-car.png') center/contain no-repeat, #333333
+  display: flex;
+  z-index: 10;
+  min-height: 300px;
+  border-top-left-radius: 32px;
+  border-top-right-radius: 32px;
+  overflow: hidden;
+  align-items: flex-end;
+  justify-content: center;
+  height: 100%;
+  max-width: 100vw;
+  background: url('../../public/images/euro-car.png') center/contain no-repeat, #333333;
+}
+
+@media (min-width: 768px) {
+  .benefits-image-wrapper {
+    border-top-left-radius: 0;
+    border-top-right-radius: 32px;
+    border-bottom-right-radius: 32px;
+  }
 }
 
 .benefits-image {
-  @apply w-full h-auto object-contain;
+  width: 100%;
+  height: auto;
+  object-fit: contain;
 }
 
 .benefits-title {
-  @apply text-3xl md:text-4xl font-semibold mb-6;
+  font-size: 1.875rem;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+}
+
+@media (min-width: 768px) {
+  .benefits-title {
+    font-size: 2.25rem;
+  }
 }
 
 .benefits-paragraph {
-  @apply text-base md:text-lg text-[#333] leading-relaxed mb-4;
+  font-size: 1rem;
+  color: #333;
+  line-height: 1.625;
+  margin-bottom: 1rem;
+}
+
+@media (min-width: 768px) {
+  .benefits-paragraph {
+    font-size: 1.125rem;
+  }
 }
 
 .benefits-list {
-  @apply space-y-3 mt-4;
+  margin-top: 1rem;
 }
 
 .benefits-list-item {
-  @apply flex items-start gap-2 text-sm md:text-base text-[#333];
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5rem;
+  font-size: 0.875rem;
+  color: #333;
+  margin-bottom: 0.75rem;
+}
+
+@media (min-width: 768px) {
+  .benefits-list-item {
+    font-size: 1rem;
+  }
 }
 
 .benefits-list-icon {
-  @apply mt-[2px];
+  margin-top: 2px;
 }
 
-#benefits .button-hero{
-  @apply relative z-10 inline-block px-[44px] py-[14px] border mt-14 border-black shadow-xl rounded-full text-base font-normal text-black hover:text-white hover:bg-black bg-white transition-colors duration-300
+#benefits .button-hero {
+  position: relative;
+  z-index: 10;
+  display: inline-block;
+  padding: 14px 44px;
+  border: 1px solid black;
+  margin-top: 3.5rem;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+  border-radius: 9999px;
+  font-size: 1rem;
+  font-weight: 400;
+  color: black;
+  background: white;
+  transition: color 0.3s, background-color 0.3s;
+}
+
+#benefits .button-hero:hover {
+  color: white;
+  background: black;
 }

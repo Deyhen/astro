@@ -13,12 +13,16 @@ import review4 from 'public/images/reviews/review-4.webp';
     <h2 class="reviews-title" data-aos="fade-up">Отзывы наших клиентов</h2>
 
     <div class="reviews-slider">
-      <!-- Стрелки для десктопа -->
-      <button id="reviews-prev" class="reviews-arrow-btn" aria-label="Предыдущий отзыв"> ‹ </button>
-      <button id="reviews-next" class="reviews-arrow-btn" aria-label="Следующий отзыв"> › </button>
+      <div class="reviews-arrows">
+        <button id="reviews-prev" class="reviews-arrow-btn" aria-label="Предыдущий отзыв">
+          ‹
+        </button>
+        <button id="reviews-next" class="reviews-arrow-btn" aria-label="Следующий отзыв">
+          ›
+        </button>
+      </div>
     </div>
 
-    <!-- Горизонтальный контейнер -->
     <div id="reviews-track" class="reviews-track">
       <div class="review-image-card">
         <Image src={review1} alt="Отзыв клиента 1" class="review-image" loading="lazy" />

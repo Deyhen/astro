@@ -7,7 +7,7 @@ export function initPhoneInput(input: HTMLInputElement): void {
   initialized.add(input);
 
   const iti = intlTelInput(input, {
-    initialCountry: 'ua',
+    initialCountry: 'ru',
     separateDialCode: true,
     nationalMode: false,
     formatAsYouType: true,

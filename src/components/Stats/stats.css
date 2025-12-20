@@ -1,15 +1,71 @@
-#stats .wrap{
-  @apply flex flex-col items-start
+.stats-section {
+  position: relative;
+  width: 100%;
+  background: white;
+  padding: 5rem 1.5rem;
+  margin-top: -1px;
 }
 
-#stats .count{
-  @apply flex justify-center items-center text-3xl font-bold mb-3
+@media (min-width: 640px) {
+  .stats-section {
+    padding-left: 2.5rem;
+    padding-right: 2.5rem;
+  }
 }
 
-#stats .line{
-  @apply w-full h-[3px] bg-black mb-4
+@media (min-width: 768px) {
+  .stats-section {
+    padding-top: 7rem;
+    padding-bottom: 7rem;
+  }
 }
 
-#stats .label{
-  @apply text-gray-700 text-base font-light
+.stats-container {
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 4rem;
+  text-align: center;
+}
+
+@media (min-width: 640px) {
+  .stats-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .stats-container {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+#stats .wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+#stats .count {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.875rem;
+  font-weight: 700;
+  margin-bottom: 0.75rem;
+}
+
+#stats .line {
+  width: 100%;
+  height: 3px;
+  background: black;
+  margin-bottom: 1rem;
+}
+
+#stats .label {
+  color: #374151;
+  font-size: 1rem;
+  font-weight: 300;
 }

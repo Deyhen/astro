@@ -1,114 +1,176 @@
-.phone-input {
-  width: 100%;
-}
 
-/* Ensure intl-tel-input container takes full width */
-.iti {
-  width: 100%;
-  display: block;
-}
 
+.phone-input,
+.iti,
 .iti__input {
   width: 100%;
 }
 
-/* Match contacts.css styles */
-.contacts-form .iti {
-  @apply rounded-lg md:rounded-xl bg-white text-black
-    border-2 border-transparent transition-colors;
+.iti {
+  display: block;
 }
 
-.contacts-form .iti__tel-input{
-  @apply h-[58px] rounded-lg md:rounded-xl pb-0.5
+.iti__tel-input {
+  border: none;
+  height: 100%;
 }
-
-.contacts-form .iti:focus-within {
-  @apply border-[#ff7a00];
-}
-
-.contacts-form .iti.error {
-  @apply border-red-500;
-}
-
-.contacts-form .iti__input {
-  @apply w-full bg-white text-black
-    px-4 md:px-5 py-3 md:py-4 text-sm md:text-base
-    outline-none rounded-lg md:rounded-xl;
-}
-
-.contacts-form .iti__selected-dial-code {
-  @apply text-sm md:text-base text-black;
-}
-
-.contacts-form .iti__selected-country {
-  @apply pl-3 md:pl-4;
-}
-
-/* Match lead-modal.css styles */
-.lead-modal-form .iti {
-  @apply rounded-xl bg-[#dedede] text-black
-    border-2 border-transparent transition-colors;
-}
-
-.lead-modal-form .iti:focus-within {
-  @apply border-black;
-}
-
-.lead-modal-form .iti.error {
-  @apply border-red-500;
-}
-
-.lead-modal-form .iti__input {
-  @apply w-full bg-transparent text-black
-    px-4 md:px-5 py-3 md:py-3.5 text-sm md:text-base
-    outline-none placeholder:text-[#28303db7];
-}
-
-.lead-modal-form .iti__tel-input{
-  @apply h-[54px]
-}
-
-.lead-modal-form .iti__selected-dial-code {
-  @apply text-sm md:text-base text-gray-700;
-}
-
-.lead-modal-form .iti__selected-country {
-  @apply pl-3 md:pl-4
-}
-
-.lead-modal-form .iti__selected-country{
-    --iti-hover-color: #dedede;
-}
-
-.lead-modal-form .iti__tel-input{
-  @apply h-[54px]
-}
-
-/* Common styles for both */
 
 .iti__selected-country {
-    --iti-hover-color: white;
-  @apply outline-none ;
+  outline: none;
+  --iti-hover-color: white;
+}
+
+.iti__selected-country-flag {
+  margin-right: 0.5rem;
 }
 
 .iti__country-list {
-  @apply shadow-2xl rounded-lg max-h-[200px];
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+  border-radius: 0.5rem;
+  max-height: 200px;
 }
 
 .iti__country {
-  @apply px-3 py-2 text-sm;
+  padding: 0.5rem 0.75rem;
+  font-size: 0.875rem;
 }
 
 .iti__country:hover {
-  @apply bg-gray-100;
+  background: #f3f4f6;
 }
 
 .iti__country.iti__highlight {
-  @apply bg-gray-200;
+  background: #e5e7eb;
 }
-.iti__search-input{
-  @apply h-12 !outline-none
+
+.iti__search-input {
+  height: 3rem;
+  outline: none !important;
 }
-.iti__selected-country-flag {
-  @apply mr-2;
+
+
+.contacts-form .iti,
+.lead-modal-form .iti {
+  border: 2px solid transparent;
+  transition: border-color 0.3s;
+}
+
+.contacts-form .iti.error,
+.lead-modal-form .iti.error {
+  border-color: #ef4444;
+}
+
+.contacts-form .iti__input,
+.lead-modal-form .iti__input {
+  outline: none;
+}
+
+.contacts-form .iti__selected-dial-code,
+.lead-modal-form .iti__selected-dial-code {
+  font-size: 0.875rem;
+}
+
+.contacts-form .iti__selected-country,
+.lead-modal-form .iti__selected-country {
+  padding-left: 0.75rem;
+}
+
+@media (min-width: 768px) {
+  .contacts-form .iti__selected-dial-code,
+  .lead-modal-form .iti__selected-dial-code {
+    font-size: 1rem;
+  }
+
+  .contacts-form .iti__selected-country,
+  .lead-modal-form .iti__selected-country {
+    padding-left: 1rem;
+  }
+}
+
+
+.contacts-form .iti {
+  border-radius: 0.5rem;
+  background: white;
+}
+
+.contacts-form .iti:focus-within {
+  border-color: #ff7a00;
+}
+
+.contacts-form .iti__tel-input,
+.contacts-form .iti__input {
+  background: white;
+  border-radius: 0.5rem;
+  padding: 0.75rem 1rem;
+  font-size: 0.875rem;
+}
+
+.contacts-form .iti__input {
+  color: black;
+}
+
+.contacts-form .iti__selected-dial-code {
+  color: black;
+}
+
+@media (min-width: 768px) {
+  .contacts-form .iti {
+    border-radius: 0.75rem;
+  }
+
+  .contacts-form .iti__tel-input,
+  .contacts-form .iti__input {
+    border-radius: 0.75rem;
+    padding: 1rem 1.25rem;
+    font-size: 1rem;
+  }
+}
+
+
+
+.lead-modal-form .iti {
+  height: 51px;
+  border-radius: 0.75rem;
+  background: #dedede;
+}
+
+.lead-modal-form .iti:focus-within {
+  border-color: black;
+}
+
+.lead-modal-form .iti__tel-input,
+.lead-modal-form .iti__input {
+  background: transparent;
+  border-radius: 0.5rem;
+  padding: 0.75rem 1rem;
+  font-size: 0.875rem;
+}
+
+.lead-modal-form .iti__input {
+  color: black;
+}
+
+.lead-modal-form .iti__input::placeholder {
+  color: rgba(40, 48, 61, 0.72);
+}
+
+.lead-modal-form .iti__selected-dial-code {
+  color: #374151;
+}
+
+.lead-modal-form .iti__selected-country {
+  --iti-hover-color: none;
+}
+
+@media (min-width: 768px) {
+  .lead-modal-form .iti {
+    border-radius: 0.75rem;
+  }
+
+  .lead-modal-form .iti__tel-input,
+  .lead-modal-form .iti__input {
+    border-radius: 0.75rem;
+    padding: 1rem 1.25rem;
+    font-size: 1rem;
+  }
 }

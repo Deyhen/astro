@@ -1,10 +1,11 @@
 // Validation rules
 interface ValidationRule {
+  required?: boolean; // defaults to true
   minLength?: number;
   maxLength?: number;
   pattern?: RegExp;
   messages: {
-    required: string;
+    required?: string;
     minLength?: string;
     maxLength?: string;
     pattern?: string;
@@ -39,12 +40,16 @@ export function validateField(fieldName: string, value: string): ValidationResul
   if (!rules) return { valid: true };
 
   const trimmedValue = value.trim();
+  const isRequired = rules.required !== false; // defaults to true
 
   if (!trimmedValue) {
-    return {
-      valid: false,
-      message: rules.messages.required
-    };
+    if (isRequired) {
+      return {
+        valid: false,
+        message: rules.messages.required
+      };
+    }
+    return { valid: true };
   }
 
   if (rules.minLength && trimmedValue.length < rules.minLength) {
@@ -71,8 +76,7 @@ export function validateField(fieldName: string, value: string): ValidationResul
   return { valid: true };
 }
 
-// Validate phone using intl-tel-input
-export function validatePhone(input: HTMLInputElement): ValidationResult {
+export function validatePhone(input: HTMLInputElement, required: boolean = true): ValidationResult {
   const iti = (input as any).intlTelInputInstance;
 
   if (!iti) {
@@ -85,10 +89,13 @@ export function validatePhone(input: HTMLInputElement): ValidationResult {
   const value = input.value.trim();
 
   if (!value) {
-    return {
-      valid: false,
-      message: 'Пожалуйста, введите телефон'
-    };
+    if (required) {
+      return {
+        valid: false,
+        message: 'Пожалуйста, введите телефон'
+      };
+    }
+    return { valid: true };
   }
 
   console.log(iti.isValidNumber(), iti.getNumberType())
@@ -107,49 +114,50 @@ export function showError(input: HTMLInputElement, message: string): void {
   const wrapper = input.closest('.input-wrapper') as HTMLElement;
   if (!wrapper) return;
 
-  let errorEl = wrapper.querySelector('.error-message') as HTMLElement;
+  const span = wrapper.querySelector('.error-message span') as HTMLElement;
+  if (span) span.textContent = message;
 
-  if (!errorEl) {
-    errorEl = document.createElement('div');
-    errorEl.className = 'error-message';
-    wrapper.appendChild(errorEl);
-  }
-
-  errorEl.textContent = message;
+  wrapper.classList.remove('is-hiding-error');
+  wrapper.classList.add('has-error');
 
   if (input.hasAttribute('data-phone-input')) {
-    const itiContainer = wrapper.querySelector('.iti');
-    if (itiContainer) {
-      itiContainer.classList.add('error');
-    }
+    wrapper.querySelector('.iti')?.classList.add('error');
   } else {
     input.classList.add('error');
   }
-
-  wrapper.classList.add('has-error');
 }
+
 
 export function hideError(input: HTMLInputElement): void {
   const wrapper = input.closest('.input-wrapper') as HTMLElement;
   if (!wrapper) return;
 
-  const errorEl = wrapper.querySelector('.error-message') as HTMLElement;
+  if (!wrapper.classList.contains('has-error')) return;
 
-  if (errorEl) {
-    errorEl.textContent = '';
-  }
+  const span = wrapper.querySelector('.error-message span') as HTMLElement;
+  if (!span) return;
+
+  wrapper.classList.add('is-hiding-error');
 
   if (input.hasAttribute('data-phone-input')) {
-    const itiContainer = wrapper.querySelector('.iti');
-    if (itiContainer) {
-      itiContainer.classList.remove('error');
-    }
+    wrapper.querySelector('.iti')?.classList.remove('error');
   } else {
     input.classList.remove('error');
   }
 
-  wrapper.classList.remove('has-error');
+  const onTransitionEnd = (e: TransitionEvent) => {
+    if (e.target !== span || e.propertyName !== 'opacity') return;
+
+    span.textContent = '';
+    wrapper.classList.remove('has-error');
+    wrapper.classList.remove('is-hiding-error');
+
+    span.removeEventListener('transitionend', onTransitionEnd);
+  };
+
+  span.addEventListener('transitionend', onTransitionEnd);
 }
+
 
 interface FormData {
   [key: string]: string;
@@ -166,7 +174,8 @@ export function initFormValidation(
 
   const validationState: { [key: string]: boolean } = {};
   inputs.forEach(input => {
-    validationState[input.name] = false;
+    const isRequired = !input.hasAttribute('data-optional');
+    validationState[input.name] = !isRequired; // optional fields start as valid
   });
 
   function updateSubmitButton(): void {
@@ -176,9 +185,10 @@ export function initFormValidation(
 
   function validateInput(input: HTMLInputElement): void {
     let validation: ValidationResult;
+    const isRequired = !input.hasAttribute('data-optional');
 
     if (input.hasAttribute('data-phone-input')) {
-      validation = validatePhone(input);
+      validation = validatePhone(input, isRequired);
     } else {
       validation = validateField(input.name, input.value);
     }
@@ -216,6 +226,12 @@ export function initFormValidation(
             validateInput(input);
           }
         });
+
+        input.addEventListener('paste', () => {
+          setTimeout(() => {
+            validateInput(input);
+          }, 0);
+        });
       }
     }
   });
@@ -226,9 +242,10 @@ export function initFormValidation(
     let hasErrors = false;
     inputs.forEach(input => {
       let validation: ValidationResult;
+      const isRequired = !input.hasAttribute('data-optional');
 
       if (input.hasAttribute('data-phone-input')) {
-        validation = validatePhone(input);
+        validation = validatePhone(input, isRequired);
       } else {
         validation = validateField(input.name, input.value);
       }

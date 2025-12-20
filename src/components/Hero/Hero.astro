@@ -3,51 +3,33 @@ import './hero.css';
 import Arrow from 'public/icons/arrowDown.svg';
 ---
 
-<section id="hero" class="relative w-full h-screen flex justify-center overflow-hidden">
-  <!-- Background -->
-  <div class="absolute inset-0 hero-bg"></div>
+<section id="hero" class="hero-section">
+  <div class="hero-bg-wrapper hero-bg"></div>
+  <div class="hero-overlay"></div>
 
-  <!-- Dark overlay -->
-  <div class="absolute inset-0 bg-black/70"></div>
-
-  <!-- Content container -->
-  <div class="relative max-w-[1200px] h-full text-center pt-[132px] px-8 sm:px-4">
-    <div
-      data-aos="fade-left"
-      class="text-xs sm:text-sm text-white font-semibold uppercase pb-[30px] tracking-[2.5px]"
-    >
+  <div class="hero-content">
+    <div data-aos="fade-left" class="hero-subtitle">
       ПОИСК И ПОКУПКА АВТО ИЗ ЕВРОПЫ В РФ ПОД КЛЮЧ
     </div>
 
-    <h1
-      data-aos="fade-up"
-      class="text-2xl xs:text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl text-white font-semibold leading-[1.17] pt-4 pb-[48px] xl:pb-[38px] tracking-[2px]"
-    >
+    <h1 data-aos="fade-up" class="hero-title">
       Привезем ваш идеальный<br />
       автомобиль — без переплат<br />
       и хлопот
     </h1>
 
-    <p
-      data-aos="fade-up"
-      data-aos-delay="150"
-      class="max-w-[700px] mx-auto text-base xs:text-lg sm:text-xl md:text-2xl font-light text-white pb-[90px] md:pb-[64px] xl:pb-[48px] leading-normal"
-    >
+    <p data-aos="fade-up" data-aos-delay="150" class="hero-description">
       Мы поможем подобрать, проверить и привезти автомобиль из Европы. Полный цикл услуг — от поиска
       до постановки на учёт. Прозрачно, быстро и с гарантией качества.
     </p>
 
-    <div data-aos="fade-up" data-aos-delay="250" class="cursor-pointer">
-      <a
-        data-open-lead
-        class="button-hero relative z-10 inline-block px-[60px] py-[18px] border border-white rounded-full text-base font-normal text-white hover:text-black hover:bg-white bg-black transition-colors duration-300"
-      >
+    <div data-aos="fade-up" data-aos-delay="250" class="hero-cta-wrapper">
+      <a data-open-lead class="button-hero">
         Подобрать авто
       </a>
     </div>
   </div>
 
-  <!-- Bottom shape + arrow -->
   <div class="hero-bottom-v">
     <svg
       role="presentation"
@@ -60,7 +42,7 @@ import Arrow from 'public/icons/arrowDown.svg';
       <path d="M640 195.5 L0 0 v200 h1280 V0 z"></path>
     </svg>
 
-    <a href="#stats" class="arrow-bounce absolute -top-8 sm:top-0 lg:top-8 xl:top-12">
+    <a href="#stats" class="arrow-bounce">
       <Arrow />
     </a>
   </div>

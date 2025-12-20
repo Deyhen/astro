@@ -1,48 +1,106 @@
 .reviews-section {
-  @apply bg-white  md:py-8;
+  background: white;
 }
 
-
+@media (min-width: 768px) {
+  .reviews-section {
+    padding: 2rem 0;
+  }
+}
 
 .reviews-title {
-  @apply text-3xl md:text-4xl font-semibold text-center mb-10 md:mb-14;
+  font-size: 1.875rem;
+  font-weight: 600;
+  text-align: center;
+  margin-bottom: 2.5rem;
 }
 
-/* Обгортка слайдера */
+@media (min-width: 768px) {
+  .reviews-title {
+    font-size: 2.25rem;
+    margin-bottom: 3.5rem;
+  }
+}
+
 .reviews-slider {
-  @apply relative mt-4 md:pt-8;
+  position: relative;
+  margin-top: 1rem;
 }
 
-/* Горизонтальный контейнер */
-.reviews-track {
-  @apply flex gap-12 overflow-x-auto scroll-smooth py-12 pb-16 w-full px-4;
+@media (min-width: 768px) {
+  .reviews-slider {
+    padding-top: 2rem;
+  }
 }
 
-/* Скрыть скроллбар */
-.reviews-track::-webkit-scrollbar {
-  display: none;
-}
 .reviews-track {
+  display: flex;
+  gap: 3rem;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  padding: 3rem 1rem 4rem;
+  width: 100%;
   -ms-overflow-style: none;
   scrollbar-width: none;
 }
 
-/* Одна карточка c картинкой */
+.reviews-track::-webkit-scrollbar {
+  display: none;
+}
+
 .review-image-card {
-  @apply flex-shrink-0  w-[320px]  lg:w-[420px]
-    rounded-[32px] overflow-hidden shadow-[0_20px_40px_rgba(0,0,0,0.25)];
+  flex-shrink: 0;
+  width: 320px;
+  border-radius: 32px;
+  overflow: hidden;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.25);
+  pointer-events: none;
+  user-select: none;
+}
+
+@media (min-width: 1024px) {
+  .review-image-card {
+    width: 420px;
+  }
 }
 
 .review-image {
-  @apply w-full h-full object-cover;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
-/* Стрелки (только на десктопе) */
 .reviews-arrows {
-  @apply hidden md:flex items-center gap-3 absolute top-0 right-20 z-10 pointer-events-none;
+  display: none;
+  align-items: center;
+  gap: 0.75rem;
+  position: absolute;
+  top: 0;
+  right: 5rem;
+  z-index: 10;
+  pointer-events: none;
+}
+
+@media (min-width: 768px) {
+  .reviews-arrows {
+    display: flex;
+  }
 }
 
 .reviews-arrow-btn {
-  @apply w-16 h-16 rounded-2xl text-5xl  flex items-center justify-center cursor-pointer
-    text-gray-800 hover:text-red-600 transition-colors pointer-events-auto;
+  width: 4rem;
+  height: 4rem;
+  border-radius: 1rem;
+  font-size: 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: #1f2937;
+  transition: color 0.3s;
+  pointer-events: auto;
+}
+
+.reviews-arrow-btn:hover {
+  color: #dc2626;
 }

@@ -17,7 +17,7 @@ import './lead-modal.css';
     </button>
 
     <h2 id="lead-modal-title" class="lead-modal-title">
-      Оставьте заявку —<br class="hidden md:block" />
+      Оставьте заявку —<br class="hide-mobile" />
       привезём авто из Европы под ключ
     </h2>
 
@@ -31,16 +31,19 @@ import './lead-modal.css';
         <div class="input-wrapper">
           <label class="sr-only" for="lead-name">Ваше имя</label>
           <input id="lead-name" name="name" type="text" class="lead-input" placeholder="Ваше имя" />
+          <div class="error-message"><span></span></div>
         </div>
 
         <div class="input-wrapper">
           <label class="sr-only" for="lead-phone">Телефон</label>
           <PhoneInput id="lead-phone" name="phone" class="lead-phone-input" />
+          <div class="error-message"><span></span></div>
         </div>
 
         <div class="input-wrapper">
           <label class="sr-only" for="lead-car">Марка / модель авто</label>
           <input
+            data-optional
             id="lead-car"
             name="car"
             type="text"
@@ -56,7 +59,7 @@ import './lead-modal.css';
     <p class="lead-consent">
       Отправляя заявку, вы даете свое согласие<br />
       на
-      <a href="/Policy" target="_blank" rel="noopener noreferrer">
+      <a href="/policy" target="_blank" rel="noopener noreferrer">
         обработку персональных данных
       </a>
       .

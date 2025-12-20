@@ -18,10 +18,12 @@ import './contacts.css';
     <form class="contacts-form" id="contacts-form">
       <div class="input-wrapper">
         <input type="text" name="name" class="contacts-input" placeholder="Имя" />
+        <div class="error-message"><span></span></div>
       </div>
 
       <div class="input-wrapper">
         <PhoneInput id="contacts-phone" name="phone" />
+        <div class="error-message"><span></span></div>
       </div>
 
       <button type="submit" class="contacts-button"> Оставить заявку </button>
@@ -40,12 +42,10 @@ import './contacts.css';
   const API_URL =
     import.meta.env.PUBLIC_API_URL || 'https://app-server.arcticautotrade.workers.dev';
 
-  // Wait for phone input to be initialized
   window.addEventListener('load', () => {
     const form = document.getElementById('contacts-form') as HTMLFormElement;
 
     if (form) {
-      // Small delay to ensure intl-tel-input is initialized
       setTimeout(() => {
         initFormValidation(form, async (formData) => {
           const submitBtn = form.querySelector('button[type="submit"]') as HTMLButtonElement;

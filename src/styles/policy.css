@@ -1,35 +1,100 @@
 .policy-section {
-  @apply bg-white py-10 md:py-16;
+  background: white;
+  padding: 2.5rem 0;
+}
+
+@media (min-width: 768px) {
+  .policy-section {
+    padding: 4rem 0;
+  }
 }
 
 .policy-container {
-  @apply max-w-[900px] mx-auto px-6;
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
 }
 
 .policy-title {
-  @apply text-2xl md:text-3xl font-semibold mb-6 md:mb-8;
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+}
+
+@media (min-width: 768px) {
+  .policy-title {
+    font-size: 1.875rem;
+    margin-bottom: 2rem;
+  }
 }
 
 .policy-updated {
-  @apply text-xs text-gray-500 mb-6;
+  font-size: 0.75rem;
+  color: #6b7280;
+  margin-bottom: 1.5rem;
 }
 
 .policy-block {
-  @apply mb-6 md:mb-8;
+  margin-bottom: 1.5rem;
+}
+
+@media (min-width: 768px) {
+  .policy-block {
+    margin-bottom: 2rem;
+  }
 }
 
 .policy-block h2 {
-  @apply text-lg md:text-xl font-semibold mb-3;
+  font-size: 1.125rem;
+  font-weight: 600;
+  margin-bottom: 0.75rem;
+}
+
+@media (min-width: 768px) {
+  .policy-block h2 {
+    font-size: 1.25rem;
+  }
 }
 
 .policy-block h3 {
-  @apply text-base font-semibold mb-2;
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
 }
 
 .policy-block p {
-  @apply text-sm md:text-base leading-relaxed mb-3;
+  font-size: 0.875rem;
+  line-height: 1.625;
+  margin-bottom: 0.75rem;
+}
+
+@media (min-width: 768px) {
+  .policy-block p {
+    font-size: 1rem;
+  }
 }
 
 .policy-block ul {
-  @apply list-disc pl-5 space-y-1 text-sm md:text-base leading-relaxed;
+  list-style-type: disc;
+  padding-left: 1.25rem;
+  font-size: 0.875rem;
+  line-height: 1.625;
+}
+
+@media (min-width: 768px) {
+  .policy-block ul {
+    font-size: 1rem;
+  }
+}
+
+.policy-block ul li {
+  margin-bottom: 0.25rem;
+}
+
+.policy-link {
+  color: #ff7a00;
+  text-decoration: underline;
+  text-underline-offset: 2px;
 }

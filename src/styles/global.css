@@ -1,14 +1,58 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
-html{
+html {
   scroll-behavior: smooth;
   scrollbar-gutter: stable;
 }
 
 body {
-  @apply font-sans bg-white text-gray-900 max-w-[100vw];
+  font-family: 'Montserrat', sans-serif;
+  background: white;
+  color: #111827;
+  max-width: 100vw;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  overflow-x: hidden;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+button {
+  border: none;
+  background: none;
+  cursor: pointer;
+  font-family: inherit;
+}
+
+input {
+  font-family: inherit;
+}
+
+ul, ol {
+  list-style: none;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+.hide-mobile {
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .hide-mobile {
+    display: block;
+  }
 }
 
 @keyframes shine {
@@ -35,7 +79,6 @@ body {
     opacity: 0;
   }
 }
-
 
 @keyframes bounceArrow {
   0% {

@@ -1,39 +1,199 @@
-/* ─────────────────────────────────────────────── */
-/* HERO BACKGROUND */
-/* ─────────────────────────────────────────────── */
+.hero-section {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.hero-bg-wrapper {
+  position: absolute;
+  inset: 0;
+}
 
 .hero-bg {
-  @apply bg-no-repeat bg-cover bg-center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
   background-image: url('../../public/images/main-bg.webp');
 }
 
-/* ─────────────────────────────────────────────── */
-/* HERO BOTTOM V SHAPE */
-/* ─────────────────────────────────────────────── */
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.7);
+}
+
+.hero-content {
+  position: relative;
+  max-width: 1200px;
+  height: 100%;
+  text-align: center;
+  padding-top: 132px;
+  padding-left: 2rem;
+  padding-right: 2rem;
+}
+
+@media (min-width: 640px) {
+  .hero-content {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+}
+
+.hero-subtitle {
+  font-size: 0.75rem;
+  color: white;
+  font-weight: 600;
+  text-transform: uppercase;
+  padding-bottom: 30px;
+  letter-spacing: 2.5px;
+}
+
+@media (min-width: 640px) {
+  .hero-subtitle {
+    font-size: 0.875rem;
+  }
+}
+
+.hero-title {
+  font-size: 1.5rem;
+  color: white;
+  font-weight: 600;
+  line-height: 1.17;
+  padding-top: 1rem;
+  padding-bottom: 48px;
+  letter-spacing: 2px;
+}
+
+@media (min-width: 460px) {
+  .hero-title {
+    font-size: 1.875rem;
+  }
+}
+
+@media (min-width: 640px) {
+  .hero-title {
+    font-size: 2.25rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .hero-title {
+    font-size: 3rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .hero-title {
+    font-size: 3.75rem;
+  }
+}
+
+@media (min-width: 1280px) {
+  .hero-title {
+    font-size: 4.5rem;
+    padding-bottom: 38px;
+  }
+}
+
+.hero-description {
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+  font-size: 1rem;
+  font-weight: 300;
+  color: white;
+  padding-bottom: 90px;
+  line-height: 1.5;
+}
+
+@media (min-width: 460px) {
+  .hero-description {
+    font-size: 1.125rem;
+  }
+}
+
+@media (min-width: 640px) {
+  .hero-description {
+    font-size: 1.25rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .hero-description {
+    font-size: 1.5rem;
+    padding-bottom: 64px;
+  }
+}
+
+@media (min-width: 1280px) {
+  .hero-description {
+    padding-bottom: 48px;
+  }
+}
+
+.hero-cta-wrapper {
+  cursor: pointer;
+}
+
+.button-hero {
+  position: relative;
+  z-index: 10;
+  display: inline-block;
+  padding: 18px 60px;
+  border: 1px solid white;
+  border-radius: 9999px;
+  font-size: 1rem;
+  font-weight: 400;
+  color: white;
+  background: black;
+  transition: color 0.3s, background-color 0.3s;
+  overflow: hidden;
+}
+
+.button-hero:hover {
+  color: black;
+  background: white;
+}
 
 .hero-bottom-v {
-  @apply absolute bottom-0 left-0 w-full flex justify-center items-end;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
   height: calc(-1px + 8vw);
 }
 
 .hero-bottom-v > .v-path {
-  @apply w-full h-full;
+  width: 100%;
+  height: 100%;
 }
-
-/* ─────────────────────────────────────────────── */
-/* BUTTON SHINE EFFECT */
-/* ─────────────────────────────────────────────── */
-
-.button-hero {
-  @apply relative overflow-hidden transition-colors;
-}
-
-
-
-/* ─────────────────────────────────────────────── */
-/* ARROW ANIMATION */
-/* ─────────────────────────────────────────────── */
 
 .arrow-bounce {
+  position: absolute;
+  top: -2rem;
   animation: bounceArrow 1.4s infinite ease-out;
+}
+
+@media (min-width: 640px) {
+  .arrow-bounce {
+    top: 0;
+  }
+}
+
+@media (min-width: 1024px) {
+  .arrow-bounce {
+    top: 2rem;
+  }
+}
+
+@media (min-width: 1280px) {
+  .arrow-bounce {
+    top: 3rem;
+  }
 }
