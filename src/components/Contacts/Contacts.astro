@@ -37,6 +37,9 @@ import './contacts.css';
 <script>
   import { initFormValidation } from '../../scripts/formValidation';
 
+  const API_URL =
+    import.meta.env.PUBLIC_API_URL || 'https://app-server.arcticautotrade.workers.dev';
+
   // Wait for phone input to be initialized
   window.addEventListener('load', () => {
     const form = document.getElementById('contacts-form') as HTMLFormElement;
@@ -44,11 +47,38 @@ import './contacts.css';
     if (form) {
       // Small delay to ensure intl-tel-input is initialized
       setTimeout(() => {
-        initFormValidation(form, (formData) => {
-          console.log('Contacts form submitted:', formData);
-          // Here you can add your form submission logic (e.g., send to API)
-          alert('Заявка отправлена!');
-          form.reset();
+        initFormValidation(form, async (formData) => {
+          const submitBtn = form.querySelector('button[type="submit"]') as HTMLButtonElement;
+          const originalText = submitBtn.textContent;
+
+          try {
+            submitBtn.disabled = true;
+            submitBtn.textContent = 'Отправка...';
+
+            const response = await fetch(`${API_URL}/api/apply`, {
+              method: 'POST',
+              headers: {
+                'Content-Type': 'application/json',
+              },
+              body: JSON.stringify({
+                name: formData.name,
+                phone: formData.phone,
+              }),
+            });
+
+            if (!response.ok) {
+              throw new Error('Failed to submit');
+            }
+
+            alert('Заявка отправлена! Мы свяжемся с вами в ближайшее время.');
+            form.reset();
+          } catch (error) {
+            console.error('Form submission error:', error);
+            alert('Произошла ошибка при отправке. Пожалуйста, попробуйте позже.');
+          } finally {
+            submitBtn.disabled = false;
+            submitBtn.textContent = originalText;
+          }
         });
       }, 100);
     }

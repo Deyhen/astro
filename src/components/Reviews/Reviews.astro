@@ -14,32 +14,26 @@ import review4 from 'public/images/reviews/review-4.webp';
 
     <div class="reviews-slider">
       <!-- Стрелки для десктопа -->
-      <div class="reviews-arrows">
-        <button id="reviews-prev" class="reviews-arrow-btn" aria-label="Предыдущий отзыв">
-          ‹
-        </button>
-        <button id="reviews-next" class="reviews-arrow-btn" aria-label="Следующий отзыв">
-          ›
-        </button>
+      <button id="reviews-prev" class="reviews-arrow-btn" aria-label="Предыдущий отзыв"> ‹ </button>
+      <button id="reviews-next" class="reviews-arrow-btn" aria-label="Следующий отзыв"> › </button>
+    </div>
+
+    <!-- Горизонтальный контейнер -->
+    <div id="reviews-track" class="reviews-track">
+      <div class="review-image-card">
+        <Image src={review1} alt="Отзыв клиента 1" class="review-image" loading="lazy" />
       </div>
 
-      <!-- Горизонтальный контейнер -->
-      <div id="reviews-track" class="reviews-track">
-        <div class="review-image-card">
-          <Image src={review1} alt="Отзыв клиента 1" class="review-image" loading="lazy" />
-        </div>
+      <div class="review-image-card">
+        <Image src={review2} alt="Отзыв клиента 2" class="review-image" loading="lazy" />
+      </div>
 
-        <div class="review-image-card">
-          <Image src={review2} alt="Отзыв клиента 2" class="review-image" loading="lazy" />
-        </div>
+      <div class="review-image-card">
+        <Image src={review3} alt="Отзыв клиента 3" class="review-image" loading="lazy" />
+      </div>
 
-        <div class="review-image-card">
-          <Image src={review3} alt="Отзыв клиента 3" class="review-image" loading="lazy" />
-        </div>
-
-        <div class="review-image-card">
-          <Image src={review4} alt="Отзыв клиента 4" class="review-image" loading="lazy" />
-        </div>
+      <div class="review-image-card">
+        <Image src={review4} alt="Отзыв клиента 4" class="review-image" loading="lazy" />
       </div>
     </div>
   </div>

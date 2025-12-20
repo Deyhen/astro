@@ -1,5 +1,8 @@
 import { initFormValidation } from '../../scripts/formValidation';
 
+const API_URL =
+  import.meta.env.PUBLIC_API_URL || 'https://app-server.arcticautotrade.workers.dev';
+
 export function initLeadModal() {
   const backdrop = document.getElementById('lead-modal-backdrop');
   if (!backdrop) return;
@@ -73,11 +76,40 @@ export function initLeadModal() {
   );
 
   if (form) {
-    initFormValidation(form, (formData) => {
-      console.log('Lead form submitted:', formData);
-      alert('Заявка отправлена!');
-      form.reset();
-      closeLeadModal();
+    initFormValidation(form, async (formData) => {
+      const submitBtn = form.querySelector('button[type="submit"]') as HTMLButtonElement;
+      const originalText = submitBtn.textContent;
+
+      try {
+        submitBtn.disabled = true;
+        submitBtn.textContent = 'Отправка...';
+
+        const response = await fetch(`${API_URL}/api/apply`, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            name: formData.name,
+            phone: formData.phone,
+            message: formData.car || undefined,
+          }),
+        });
+
+        if (!response.ok) {
+          throw new Error('Failed to submit');
+        }
+
+        alert('Заявка отправлена! Мы свяжемся с вами в ближайшее время.');
+        form.reset();
+        closeLeadModal();
+      } catch (error) {
+        console.error('Form submission error:', error);
+        alert('Произошла ошибка при отправке. Пожалуйста, попробуйте позже.');
+      } finally {
+        submitBtn.disabled = false;
+        submitBtn.textContent = originalText;
+      }
     });
   }
 }
